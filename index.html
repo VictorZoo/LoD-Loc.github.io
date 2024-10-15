@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LoFTR can extract high-quality semi-dense matches even in indistinctive regions with low-textures, motion blur, or repetitive patterns. Accepted in CVPR 2021."/>
+    <title>LoD-Loc: Aerial Visual Localization using LoD 3D Map with Neural Wireframe Alignment</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <style>
+      body {
+        background: #fdfcf9 no-repeat fixed top left;
+        font-family:'Open Sans', sans-serif;
+      }
+    </style>
+
+  </head>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2 style="font-size: 32px; font-weight: bold; text-align: center;">
+              LoD-Loc: Aerial Visual Localization using LoD 3D Map with Neural Wireframe Alignment
+          </h2>
+          <h4 style="color:#8c8c8c; font-size: 18px; font-style: italic; text-align: center; margin-top: 5px;">
+              NeurIPS 2024
+          </h4>
+            <hr>
+            <h6 style="font-size: 18px">
+              Juelin Zhu<sup>1*</sup>, 
+              Shen Yan<sup>1*</sup>, 
+              Long Wang<sup>2</sup>, 
+              Shengyue Zhang<sup>1</sup>, 
+              Yu Liu<sup>1</sup>, 
+              Maojun Zhang<sup>1</sup>
+          </h6>
+          <p style="font-size: 14px; color: gray;">
+              <sup>1</sup>National University of Defense Technology &nbsp;&nbsp; 
+              <sup>2</sup>SenseTime Research
+              <br>
+              <sup>*</sup> denotes equal contribution
+          </p>
+            <!-- <p> <a class="btn btn-secondary btn-lg" href="" role="button">Paper</a> 
+                <a class="btn btn-secondary btn-lg" href="" role="button">Code</a> 
+                <a class="btn btn-secondary btn-lg" href="" role="button">Data</a> </p> -->
+
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="xxx" role="button"  target="_blank">  <!--正文的pdf链接--> 
+                    <i class="fa fa-file"></i> Paper</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" id="code_soon" href="https://github.com/VictorZoo/LoD-Loc" role="button" 
+                    target="_blank" disabled=1>
+                <i class="fa fa-github-alt"></i> Code </a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="files/LoFTR-suppmat.pdf" role="button"  target="_blank">  <!--改补充材料的pdf--> 
+                    <i class="fa fa-file"></i> Supplementary</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://pan.baidu.com/s/1v3GCkjJiyrD-z72fWB_D2g?pwd=vx2a" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Dataset </a> </p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+            <h6 style="color:#8899a5" class="text-center"> 
+              TL;DR: A new method for aerial visual localization using LoD 3D map with neural wireframe alignment.
+            </h6>
+              <br>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/Seg/Overlay_seg1.mp4" type="video/mp4">
+            </video>
+            <div><b style="color:#fd5638; font-size:large" id="demo-warning"></b>
+              <br>
+              <br>
+          <p class="text-justify">
+            We propose a new method named LoD-Loc for visual localization in the air. Unlike existing localization algorithms, LoD-Loc does not rely on complex 3D represen-
+            tations and can estimate the pose of an Unmanned Aerial Vehicle (UAV) using a
+            Level-of-Detail (LoD) 3D map. LoD-Loc mainly achieves this goal by aligning
+            the wireframe derived from the LoD model projection with that predicted by the
+            neural network. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+
+  <!-- overview video -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Overview video (Coming Soon)</h3>
+            <hr style="margin-top:0px">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/xx" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+
+  <!-- pipeline -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Pipeline overview</h3>
+            <hr style="margin-top:0px">
+            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
+                <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/EpmnpwwaR14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
+            <!-- </div> -->
+                <img class="img-fluid" src="images/overview.png" alt="LoFTR Architechture">
+            <hr>
+            <p class="text-justify">
+              <strong>Overview of LoD-Loc.</strong> 1. The method uses a CNN to extract multi-level features $\mathbf{F}_l$ for the query image $\mathbf{I}$. 2. A cost volume $\mathcal{C}_l$ 
+              is built for various pose hypotheses sampled around the coarse sensor pose $\boldsymbol{\mathcal{\xi}}_p$ to select the pose $\boldsymbol{\mathcal{\xi}}_l$ with the highest probability, based on 
+              the projected wireframe of the 3D LoD model. 3. A differentiable Gauss-Newton method is used to refine the final selected pose $\boldsymbol{\mathcal{\xi}}_3$, 
+              thereby acquiring a more accurate pose $\boldsymbol{\mathcal{\xi}}^{*}$.
+          </p>          
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- demo video with orig -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Wireframe Projection Visualization</h3>
+            <!-- <h3>Matches on </h3> -->
+            <p class="text-left"> 
+              This demo shows the localization results of several drone-captured videos, including RGB and Thermal modal.</p>
+          <hr style="margin-top:0px">
+            <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" controls="" id="inspect_vid">
+              <source src="images/Proj.mp4" type="video/mp4">
+            </video> -->
+            <video id="demo" width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="images/Seg/Proj_seg1.mp4" type="video/mp4">
+        </video>
+        </div>
+      </div>
+      <br>
+
+
+  <!-- citing -->
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{
+  author    = {Juelin Zhu, Shen Yan, Long Wang, Shengyue Zhang, Yu Liu and Maojun Zhang},
+  title     = {LoD-Loc: Visual Localization using LoD 3D Map with Neural Wireframe Alignment},
+  booktitle = {NeurIPS},
+  year      = {2024},
+}</code></pre>
+          <hr>
+      </div>
+    </div>
+  </div>
+
+  <!-- ack -->
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Acknowledgements</h3>
+          <hr style="margin-top:0px">
+          <p class="text-justify">
+              <a href="https://xxx" target="_blank">LoD-Loc</a> takes the <a href="https://arxiv.org/pdf/2304.02009.pdf" target="_blank">Orienternet</a> as its code backbone. 
+              Thanks to Paul-Edouard Sarlin for the open-source release of his excellent work and his PyTorch implementation <a href="https://github.com/facebookresearch/OrienterNet" target="_blank">Orienternet</a>. 
+              Thanks to Qi Yan for open-sourcing his excellent work <a href="https://github.com/TOPO-EPFL/CrossLoc-Benchmark-Datasets" target="_blank">CrossLoc</a>.
+            </p>
+          <hr>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="text-center" style="margin-bottom:10px; font-size: medium;">
+      <hr>
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the <a href="https://lioryariv.github.io/idr/" target="_blank">website template</a>.
+  </footer>
+
+  <script type="text/javascript">
+    function changePlaybackSpeed(speed)
+        {
+            document.getElementById('inspect_vid').playbackRate = speed;
+        }
+        changePlaybackSpeed(0.25)
+
+    var demo = document.getElementById("demo");
+    var startTime;
+    var timeout = undefined;
+    demo.addEventListener("loadstart", function() {
+      startTime = Date.now();
+      timeout = setTimeout(function () {
+        var demoWarning = document.getElementById("demo-warning");
+        var giteeLink = document.createElement("a");
+        giteeLink.innerText = "mirror hosted in mainland China";
+        giteeLink.href = "https://project-pages-1255496016.cos-website.ap-shanghai.myqcloud.com/loftr/";
+
+        demoWarning.append("Loading the videos took too long, you can optionally visit this site in the ", giteeLink, ".");
+        // demoWarning.append("Loading the video took too long, you can optionally watch it on Bilibili", bilibiliLink, " or YouTube", youtubeLink, ".");
+        clearTimeout(timeout);
+        timeout = undefined;
+      }, 6000);
+    });
+    demo.addEventListener("loadeddata", function() {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = undefined;
+      }
+    });
+//     var source = document.createElement("source");
+//     source.setAttribute("src", "images/loftr-homepage-demo.mp4");
+//     source.setAttribute("type", "video/webm");
+//     demo.appendChild(source);
+  </script>
+  <script>
+    MathJax = {
+      tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>
